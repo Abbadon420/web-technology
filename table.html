@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>table</title>
+    </head>
+    <style>
+        table, td, th {
+          border:1px solid black;
+
+        }
+        .box{
+            border: 0ch;
+            width:100%;
+        }
+        </style>
+    <script>
+  function calc_sale()
+{
+var s=document.forms["bill"]["Qty1"].value;
+var a=document.forms["bill"]["price1"].value;
+var fp=s*a;
+document.forms["bill"]["sp1"].value=fp;
+
+var x=document.forms["bill"]["Qty2"].value;
+var y=document.forms["bill"]["price2"].value;
+var p=x * y;
+document.forms["bill"]["sp2"].value=p;
+
+var e=document.forms["bill"]["Qty3"].value;
+var f=document.forms["bill"]["price3"].value;
+var b=e * f;
+document.forms["bill"]["sp3"].value=b;
+
+var q=document.forms["bill"]["Qty4"].value;
+var m=document.forms["bill"]["price4"].value;
+var w=q * m;
+document.forms["bill"]["sp4"].value=w;
+}
+function final_price()
+{
+var price1=document.forms["bill"]["sp1"].value;
+var price2=document.forms["bill"]["sp2"].value;
+var price3=document.forms["bill"]["sp3"].value;
+var price4=document.forms["bill"]["sp4"].value;
+var finalprice=+price1 + +price2 + +price3 + +price4;
+document.forms["bill"]["t"].value=finalprice;
+}
+ 
+    </script>
+    <body>
+        <form name="bill" action="#" >
+        <table style="width:100%"name="tabletotal" onmouseenter="calculateTotal()">
+            <tr>
+              <th>S/N</th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Price(Rs)</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td><input type="text" id="items" name="items" class="box"></td>
+                <td><input type="number"  id="Qty1" min="0" name="Qty" class="box"></td>
+                <td><input type="number"  id="price1" name="price" min="1" class="box"></td> 
+                <td><input type="number" name="sp1" class="box" onmouseenter="calc_sale()" readonly></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td><input type="text" id="items" name="items" class="box"></td>
+                <td><input type="number"  id="Qty2" min="0" name="Qty" class="box"></td>
+                <td><input type="number"  id="price2" min="1" name="price" class="box"></td>
+                <td><input type="number" name="sp2" class="box" value="p" onmouseenter="calc_sale()" readonly></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td><input type="text" id="items" name="items" class="box"></td>
+                <td><input type="number"  id="Qty3" min="0" name="Qty" class="box"></td>
+                <td><input type="number"  id="price3" min="1" name="price" class="box"></td>
+                <td><input type="number" name="sp3" class="box" onmouseenter="calc_sale()" readonly></td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td><input type="text" id="items" name="items" class="box"></td>
+                <td><input type="number"  id="Qty4" min="0" name="Qty" class="box"></td>
+                <td><input type="number"  id="price4" min="0" name="price" class="box"></td>
+                <td><input type="number" name="sp4" class="box" onmouseenter="calc_sale()" readonly></td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td><input type="text" id="items" name="items" class="box"></td>
+                <td><input type="number"  id="Qty5" min="0" name="Qty" class="box"></td>
+                <td><input type="number"  id="price5"min="0" name="price" class="box"></td>
+                <td><input type="number" name="sp5" class="box" onmouseenter="calc_sale()" readonly></td>
+            </tr>
+            <tr>
+                <td ><button type="button" name="tot" value="Total price" onClick="final_price()">Total Price</button></td>
+                <td ><input id="total" type="number" name="t" ></td>
+                </tr>
+          </table>
+        </form>
+    </body>
+    </html>
